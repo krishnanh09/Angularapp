@@ -1,0 +1,45 @@
+.form-section{
+    /* width: 40%; */
+    box-shadow: #00000029 0px 4px 20px;
+    background-color: #FBFBFB ;
+    opacity: 100%;
+    border-radius: 30px;
+    padding: 10% 5%;
+}
+
+.form-section-mobile{
+    box-shadow: #00000029 0px 4px 20px;
+    background-color: #FBFBFB ;
+    opacity: 100%;   
+    width: 90%;
+    padding: 10% 5%;
+    position: relative;
+    z-index:0;
+   
+}
+
+.btn{
+    width: 100%;
+    background-color: #FF6E4E;
+    color: white;
+    box-shadow: #00000029 0px 4px 8px;
+}
+
+.mobileFont{
+    margin: 0 15%;
+    align-items: center;
+}
+
+.marginfont{    
+    margin: 0% 15%;
+    text-align: center;    
+}
+
+.blueFont{
+    color:#008CC9;
+}
+
+.blackFont{
+    color: #000000;
+}
+

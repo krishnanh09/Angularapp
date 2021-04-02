@@ -1,0 +1,93 @@
+<div class="container">
+    <div [ngClass]="{   
+    'form-section':!isMobile,
+    'mx-4':isMobile,
+    'form-section-mobile':isMobile
+    }" *ngIf="!isStarted">
+        <h5 class="font-weight-bold text-center my-4" *ngIf="!isMobile">Let's Start</h5>
+
+        <div [ngClass]="{
+        'marginfont':!isMobile,
+        'mobileFont':isMobile,       
+        'mb-4':!isMobile,
+        'blueFont':isMobile            
+        }">
+            <p *ngIf="!isMobile">Fill out the form and we'll get in touch to get your trial set up</p>
+            <p *ngIf="isMobile">Fill out the form and we'll get in touch soon.</p>
+        </div>
+
+        <form [formGroup]="firstForm">
+            <div class="form-group my-4 py-2 blackFont">
+                <label for="exampleSelect1">Do you want to make ads that convert?</label>
+                <div class="row">
+                    <div class="form-check form-check-inline ml-3">
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio1"
+                            value="Yes" formControlName="radio">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="radio" id="inlineRadio1"
+                            value="No" formControlName="radio">
+                        <label class="form-check-label" for="inlineRadio1">No</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mb-4 pb-4">
+                <label for="exampleSelect2">What's your monthly ad budget?</label>
+                <select class="form-control" id="exampleSelect1" placeholder="Please select" formControlName="budget">
+                    <option selected>Please select</option>
+                    <option>10000</option>
+                    <option>20000</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!(firstForm.value.radio && firstForm.value.budget)" (click)="start($event)">GET STARTED</button>
+        </form>
+    </div>
+
+    <div [ngClass]="{   
+        'form-section':!isMobile,
+        'mx-4':isMobile,
+        'form-section-mobile':isMobile
+        }" *ngIf="isStarted">
+        <h5 class="font-weight-bold marginfont text-center my-4" *ngIf="!isMobile">We'll get in touch to get your trial set up.</h5>
+        <div class="text-center marginfont blackFont mb-4">
+            <p [ngClass]="{
+                'blueFont':isMobile}">Fill out form</p>
+        </div>
+        <form [formGroup]="searchForm">
+            <div class="row my-4">
+                <div class="col">
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="First name *">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="Last name *">
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Work email *">
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col">
+                    <input type="number" class="form-control" formControlName="monthlyBudget" placeholder="Monthly Advertising Budget *">
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col">
+                    <select class="form-control" id="exampleSelect1" formControlName="country">
+                        <option selected>Please select</option>
+                        <option>India (Indian)</option>
+                        <option>Australia (Australian)</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" formControlName="phone">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary my-2"  [disabled]="!searchForm.valid" (click)="freeTrial($event)">GET FREE TRIAL</button>
+        </form>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

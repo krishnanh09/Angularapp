@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="logo" >
+        <img src="assets/images/filed-logo-01@2x.png" width="158px" height="54px" class="float-left" />
+    </div>
+   
+    
+</nav>
+
+<div class="mt-4" [ngClass]="{   
+    'form-section':!isMobile,
+    'form-section-mobile': isMobile
+}">
+    
+    <!-- <p class="font-weight-bold">FirstName:{{data.firstName}}</p> -->
+    <div class="row">
+        <div class="col-8">
+            <p class="font-weight-bold">FirstName</p>
+        </div>
+        <div class="col-4">
+            <p>:{{data.firstName}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <p class="font-weight-bold">LastName</p>
+        </div>
+        <div class="col-4">
+            <p>:{{data.lastName}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <p class="font-weight-bold">Email</p>
+        </div>
+        <div class="col-4">
+            <p>:{{data.email}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <p class="font-weight-bold">Monthly Adverstising Budget</p>
+        </div>
+        <div class="col-4">
+            <p>:{{data.monthlyBudget}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <p class="font-weight-bold">Country</p>
+        </div>
+        <div class="col-4">
+            <p>:{{data.country}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <p class="font-weight-bold">Phone</p>
+        </div>
+        <div class="col-4">
+            <p>:{{data.phone}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <p class="font-weight-bold">Do you want to make ads that convert?</p>
+        </div>
+        <div class="col-4">
+            <p>:{{data.radio}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <p class="font-weight-bold">What's your monthly ad budget?</p>
+        </div>
+        <div class="col-4">
+            <p>:{{data.budget}}</p>
+        </div>
+    </div>
+
+   
+</div>
+
+<div class="row">
+    <div class="col-8 mt-4 pt-3">
+       <p  class="font-weight-bold" [ngClass]="{
+        'amount':!isMobile
+    }"> Amount: 0 INR</p>
+    </div>
+    <div class="col-4 mt-4">
+        <button type="submit"  [ngClass]="{
+            'paybtn':!isMobile
+        }" class="btn btn-success my-2 float-right"  (click)="payment($event)">PAYMENT</button>
+    </div>
+    
+</div>
+<router-outlet></router-outlet>
